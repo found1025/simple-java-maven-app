@@ -6,13 +6,13 @@ pipeline {
         }
     }
     environment {
-	    ABC="abcdefgh"
+	    ABC = 'abcdefgh'
 	    }
     stages {
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
-		sh 'printenv'
+		    sh "echo ${ABC}"
             }
         }
 	stage('Test') {
