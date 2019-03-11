@@ -5,10 +5,14 @@ pipeline {
             args '-v /root/.m2:/root/.m2'
         }
     }
+    environment {
+	    ABC="abcdefgh"
+	    }
     stages {
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
+		sh 'printenv'
             }
         }
 	stage('Test') {
